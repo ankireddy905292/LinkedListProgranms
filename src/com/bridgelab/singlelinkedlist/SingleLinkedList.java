@@ -19,8 +19,7 @@ public class SingleLinkedList {
     private Node tail = null;
 
     //addNode() will add a new node to the list,
-    // Create a new node,
-    // Checks if the list is empty by using head address
+    // Create a new node, Checks if the list is empty by using head address
     public void addNode(int x) {
         Node newNode = new Node(x);
 
@@ -37,9 +36,9 @@ public class SingleLinkedList {
     public void displayList() {
         Node temp = head;
         if (head == null) {
-            System.out.println("Singly Linked List is Empty");
+
         }
-        System.out.println("Node Delete last Element :");
+        System.out.println("Node Search LinkedList :");
         while (temp != null) {
             System.out.println(temp.data + "");
             temp = temp.next;
@@ -111,6 +110,19 @@ public class SingleLinkedList {
         temp.next = null;
     }
 
+    //Search nodes to the Beginning to End
+    public void searchNode(int target){
+        int i=0;
+        while (head != null){
+            i++;
+            if (head.data == target){
+                System.out.println(target+" Value is at "+ i + " Node");
+            }
+            head = head.next;
+        }
+        System.out.println("Singly Linked List is Empty");
+    }
+
 
     public static void main(String[] args) {
         SingleLinkedList slList = new SingleLinkedList();
@@ -122,8 +134,8 @@ public class SingleLinkedList {
 
 
 
-        //Remove nodes to the Beginning
-        slList.remNodeAtEnd();
+        //Search nodes to the Beginning to End
+        slList.searchNode(70);
 
         //Call the Displays Method
         slList.displayList();
