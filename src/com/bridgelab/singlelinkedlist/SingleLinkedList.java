@@ -18,7 +18,9 @@ public class SingleLinkedList {
     private Node head = null;
     private Node tail = null;
 
-    //addNode() will add a new node to the list, Create a new node, Checks if the list is empty by using head address
+    //addNode() will add a new node to the list,
+    // Create a new node,
+    // Checks if the list is empty by using head address
     public void addNode(int x) {
         Node newNode = new Node(x);
 
@@ -37,7 +39,7 @@ public class SingleLinkedList {
         if (head == null) {
             System.out.println("Singly Linked List is Empty");
         }
-        System.out.println("Node Insert BetWeen LinkedList :");
+        System.out.println("Node Delete The First Element :");
         while (temp != null) {
             System.out.println(temp.data + "");
             temp = temp.next;
@@ -70,8 +72,7 @@ public class SingleLinkedList {
             temp.next = node;
         }
     }
-
-    public Node getHead() {
+    public Node getHead(){
         return head;
     }
 
@@ -80,12 +81,20 @@ public class SingleLinkedList {
         Node temp2 = new Node(x);
         temp2.next = null;
         pos--;
-        while (pos != 1) {
+        while (pos != 1){
             temp = temp.next;
             pos--;
         }
         temp2.next = temp.next;
         temp.next = temp2;
+    }
+
+    //Remove nodes to the Beginning
+    public void removeNodeAtBegin(){
+        if (head == null){
+        }else {
+            head = head.next;
+        }
     }
 
     public static void main(String[] args) {
@@ -98,6 +107,8 @@ public class SingleLinkedList {
         //Add nodes to the given pos
         slList.addAtPos(2, 30, slList.head);
 
+        //Remove nodes to the Beginning
+        slList.removeNodeAtBegin();
 
         //Call the Displays Method
         slList.displayList();
