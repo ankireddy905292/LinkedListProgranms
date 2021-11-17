@@ -18,7 +18,8 @@ public class SingleLinkedList {
     private Node head = null;
     private Node tail = null;
 
-    //addNode() will add a new node to the list, Create a new node, Checks if the list is empty by using head address
+    //addNode() will add a new node to the list, Create a new node,
+    // Checks if the list is empty by using head address
     public void addNode(int x) {
         Node newNode = new Node(x);
 
@@ -37,7 +38,7 @@ public class SingleLinkedList {
         if (head == null) {
             System.out.println("Singly Linked List is Empty");
         }
-        System.out.println("Node Remove LinkedList  :");
+        System.out.println("Node Ascending Order LinkedList :");
         while (temp != null) {
             System.out.println(temp.data + "");
             temp = temp.next;
@@ -98,7 +99,7 @@ public class SingleLinkedList {
     }
 
     //Remove nodes to the Ending
-    public void remNodeAtEnd(){
+    public void removeNodeAtEnd(){
         if (head == null && head.next == null){
             return;
         }
@@ -122,6 +123,7 @@ public class SingleLinkedList {
         System.out.println("Singly Linked List is Empty");
     }
 
+    //Remove nodes to the Given pos
     public void remNodeAtPos(int pos, int target, Node head){
         Node temp = head;
         Node prev = head;
@@ -138,6 +140,31 @@ public class SingleLinkedList {
             return;
     }
 
+    //Nodes size
+    public int size(){
+        Node temp = head;
+        int i = 0;
+        while (temp != null){
+            i++;
+            temp = temp.next;
+        }
+        return i;
+    }
+
+    //Sorting using bubble sort
+    public void sort(){
+        for (Node i = head; i.next != null; i = i.next){
+            for (Node j = head; j.next != null; j = j.next){
+                if (j.data > i.next.data){
+                    int temp = j.data;
+                    j.data = j.next.data;
+                    j.next.data = temp;
+                }
+            }
+        }
+    }
+
+
 
     public static void main(String[] args) {
         SingleLinkedList slList = new SingleLinkedList();
@@ -149,14 +176,25 @@ public class SingleLinkedList {
 
 
 
+
         //Search nodes to the Given Position
         slList.addAtPos(4, 70, slList.head);
 
         //Search nodes to the Given Position and Deleted the Node
         slList.remNodeAtPos(3, 40, slList.head);
 
+        slList.addToEnd(40);
+
+        //Sorting using bubble sort
+        slList.sort();
+
         //Call the Displays Method
         slList.displayList();
+
+        System.out.println("Size of the Above Linked List is "+slList.size());
+
+
+
 
 
     }
