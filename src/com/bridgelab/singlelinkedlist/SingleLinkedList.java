@@ -70,7 +70,8 @@ public class SingleLinkedList {
             temp.next = node;
         }
     }
-    public Node getHead(){
+
+    public Node getHead() {
         return head;
     }
 
@@ -79,7 +80,7 @@ public class SingleLinkedList {
         Node temp2 = new Node(x);
         temp2.next = null;
         pos--;
-        while (pos != 1){
+        while (pos != 1) {
             temp = temp.next;
             pos--;
         }
