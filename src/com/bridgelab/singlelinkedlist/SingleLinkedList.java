@@ -39,7 +39,7 @@ public class SingleLinkedList {
         if (head == null) {
             System.out.println("Singly Linked List is Empty");
         }
-        System.out.println("Node Delete The First Element :");
+        System.out.println("Node Delete last Element :");
         while (temp != null) {
             System.out.println(temp.data + "");
             temp = temp.next;
@@ -90,25 +90,40 @@ public class SingleLinkedList {
     }
 
     //Remove nodes to the Beginning
-    public void removeNodeAtBegin(){
+    public Node removeNodeAtBegin(){
         if (head == null){
+            return null;
         }else {
             head = head.next;
         }
+        return head;
     }
+
+    //Remove nodes to the Ending
+    public void remNodeAtEnd(){
+        if (head == null && head.next == null){
+            return;
+        }
+        Node temp = head;
+        while (temp.next.next != null){
+            temp = temp.next;
+        }
+        temp.next = null;
+    }
+
 
     public static void main(String[] args) {
         SingleLinkedList slList = new SingleLinkedList();
 
         //Add nodes to the list at End
         slList.addToEnd(56);
+        slList.addToEnd(30);
         slList.addToEnd(70);
 
-        //Add nodes to the given pos
-        slList.addAtPos(2, 30, slList.head);
+
 
         //Remove nodes to the Beginning
-        slList.removeNodeAtBegin();
+        slList.remNodeAtEnd();
 
         //Call the Displays Method
         slList.displayList();
