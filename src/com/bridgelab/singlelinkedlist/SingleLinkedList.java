@@ -36,9 +36,9 @@ public class SingleLinkedList {
     public void displayList() {
         Node temp = head;
         if (head == null) {
-
+            System.out.println("Singly Linked List is Empty");
         }
-        System.out.println("Node Search LinkedList :");
+        System.out.println("Node Insert After Linked List :");
         while (temp != null) {
             System.out.println(temp.data + "");
             temp = temp.next;
@@ -134,8 +134,8 @@ public class SingleLinkedList {
 
 
 
-        //Search nodes to the Beginning to End
-        slList.searchNode(70);
+        //Search nodes to the Given Position
+        slList.addAtPos(3, 40, slList.head);
 
         //Call the Displays Method
         slList.displayList();
