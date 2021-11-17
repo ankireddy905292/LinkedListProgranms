@@ -18,8 +18,7 @@ public class SingleLinkedList {
     private Node head = null;
     private Node tail = null;
 
-    //addNode() will add a new node to the list,
-    // Create a new node, Checks if the list is empty by using head address
+    //addNode() will add a new node to the list, Create a new node, Checks if the list is empty by using head address
     public void addNode(int x) {
         Node newNode = new Node(x);
 
@@ -38,7 +37,7 @@ public class SingleLinkedList {
         if (head == null) {
             System.out.println("Singly Linked List is Empty");
         }
-        System.out.println("Node Insert After Linked List :");
+        System.out.println("Node Remove LinkedList  :");
         while (temp != null) {
             System.out.println(temp.data + "");
             temp = temp.next;
@@ -123,6 +122,22 @@ public class SingleLinkedList {
         System.out.println("Singly Linked List is Empty");
     }
 
+    public void remNodeAtPos(int pos, int target, Node head){
+        Node temp = head;
+        Node prev = head;
+        if (temp != null && temp.data == target){
+            temp = temp.next;
+            return;
+        }
+        while (temp != null && temp.data != target){
+            prev = temp;
+            temp = temp.next;
+        }
+        prev.next = temp.next;
+        if (temp == null)
+            return;
+    }
+
 
     public static void main(String[] args) {
         SingleLinkedList slList = new SingleLinkedList();
@@ -130,12 +145,15 @@ public class SingleLinkedList {
         //Add nodes to the list at End
         slList.addToEnd(56);
         slList.addToEnd(30);
-        slList.addToEnd(70);
+        slList.addToEnd(40);
 
 
 
         //Search nodes to the Given Position
-        slList.addAtPos(3, 40, slList.head);
+        slList.addAtPos(4, 70, slList.head);
+
+        //Search nodes to the Given Position and Deleted the Node
+        slList.remNodeAtPos(3, 40, slList.head);
 
         //Call the Displays Method
         slList.displayList();
@@ -143,4 +161,5 @@ public class SingleLinkedList {
 
     }
 }
+
 
