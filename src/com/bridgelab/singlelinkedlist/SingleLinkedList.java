@@ -3,11 +3,11 @@ import java.util.*;
 public class SingleLinkedList {
 
     //Represent a node of the singly linked list
-    public static class Node{
+    public static class Node {
         private int data;
         private Node next;
 
-        public Node(int x){
+        public Node(int x) {
             this.data = x;
             this.next = null;
         }
@@ -19,12 +19,12 @@ public class SingleLinkedList {
     private Node tail = null;
 
     //addNode() will add a new node to the list, Create a new node, Checks if the list is empty by using head address
-    public void addNode(int x){
+    public void addNode(int x) {
         Node newNode = new Node(x);
 
-        if (head == null){
+        if (head == null) {
             head = newNode;
-        }else{
+        } else {
             tail.next = newNode;
             tail = newNode;
         }
@@ -32,13 +32,13 @@ public class SingleLinkedList {
     }
 
     //displayList() will display all the nodes
-    public void displayList(){
+    public void displayList() {
         Node temp = head;
-        if (head == null){
+        if (head == null) {
             System.out.println("Singly Linked List is Empty");
         }
-        System.out.println("Append LinkedList :");
-        while (temp != null){
+        System.out.println("Node Insert BetWeen LinkedList :");
+        while (temp != null) {
             System.out.println(temp.data + "");
             temp = temp.next;
         }
@@ -47,42 +47,61 @@ public class SingleLinkedList {
     }
 
     //Add nodes to the list at Beginning
-    public void addToBegin(int x){
+    public void addToBegin(int x) {
         Node node = new Node(x);
-        if (head == null){
+        if (head == null) {
             this.head = node;
-        }else{
+        } else {
             node.next = head;
             head = node;
         }
     }
 
     //Add nodes to the list at End
-    public void addToEnd(int x){
+    public void addToEnd(int x) {
         Node node = new Node(x);
-        if (head == null){
+        if (head == null) {
             this.head = node;
-        }else{
+        } else {
             Node temp = head;
-            while (temp.next != null){
+            while (temp.next != null) {
                 temp = temp.next;
             }
             temp.next = node;
         }
     }
+    public Node getHead(){
+        return head;
+    }
 
-
+    public void addAtPos(int pos, int x, Node head) {
+        Node temp = head;
+        Node temp2 = new Node(x);
+        temp2.next = null;
+        pos--;
+        while (pos != 1){
+            temp = temp.next;
+            pos--;
+        }
+        temp2.next = temp.next;
+        temp.next = temp2;
+    }
 
     public static void main(String[] args) {
         SingleLinkedList slList = new SingleLinkedList();
 
         //Add nodes to the list at End
         slList.addToEnd(56);
-        slList.addToEnd(30);
         slList.addToEnd(70);
+
+        //Add nodes to the given pos
+        slList.addAtPos(2, 30, slList.head);
+
 
         //Call the Displays Method
         slList.displayList();
+
+
     }
 }
 
